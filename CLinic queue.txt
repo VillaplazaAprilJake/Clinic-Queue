@@ -1,0 +1,56 @@
+BEGIN
+	INPUT Patient Name
+	INPUT Age
+	INPUT Reason for Visit
+	INPUT Patient Type
+	
+	IF patientName IS EMPTY THEN SHOW "Please enter the Patient's name."
+	RETURN
+
+	END IF
+	
+	IF patientType IS EMPTY THEN SHOW "Please select a patient Type. "
+	RETURN
+
+	END IF
+	
+	IF ageText IS NOT A VALID NUMBEROR age<= 0 THEN SHOW
+"Please enter a valid age
+	RETURN
+
+	END IF
+
+	queueCounter = queueCounter + 1
+	queueNumber = "Q" +
+	queueCounter (padded to 3 digits, e.g Q001)
+
+	SELECT CASE patientType
+		CASE "Emergency" : priority = "EMERGENCY"
+	SELECT CASE patientType
+		CASE "Senior" : priority = "SENIOR"
+
+	SELECT CASE patientType
+		CASE "Pregnant" : priority = "PREGNANT"
+	SELECT CASE patientType
+		CASE "Regular" : priority = "REGULAR"
+
+	END SELECT
+		
+		DISPLAY queueNumber IN lblQueueNumberValue
+		DISPLAY PatientType IN lblPatientTypeValue
+		DISPLAY priority IN lblPatientTypeValue
+			ADD row (queueNumber, name, type , 	priotity) to queue log list 
+	END ADD_TO QUEUE
+
+
+
+CLEAR
+
+BEGIN CLEAR
+	SET txtName, txtAge,txtReason TO empty
+	RESET cmbPatientType TO no selection 
+	SET lblQueueNUmberValue, lblPatientTypeValue, lblPatientTypeValue TO empty (queueCounter is NOT reset - the sequence keeps going)
+
+END CLEAR 
+
+
